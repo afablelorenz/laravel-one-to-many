@@ -10,17 +10,23 @@
                 <div class="card-body">
                     <form method="POST" action="{{ route('admin.projects.store') }}">
                         @csrf
-
                         <div class="mb-3">
                             <label for="title" class="form-label">{{ __('Title') }}</label>
                             <input type="text" class="form-control" id="title" name="title" required>
                         </div>
-
                         <div class="mb-3">
                             <label for="description" class="form-label">{{ __('Description') }}</label>
                             <textarea class="form-control" id="description" name="description" required></textarea>
                         </div>
-
+                        <div class="mb-3">
+                            <label for="type_id" class="form-label">{{ __('Type') }}</label>
+                            <select class="form-control" id="type_id" name="type_id">
+                                <option value="">Select a type</option>
+                                @foreach($types as $type)
+                                    <option value="{{ $type->id }}">{{ $type->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
                         <button type="submit" class="btn btn-primary">{{ __('Submit') }}</button>
                     </form>
                 </div>

@@ -9,6 +9,9 @@
 
                 <div class="card-body">
                     <p>{{ $project->description }}</p>
+                    @if($project->type)
+                        <p><strong>Type:</strong> {{ $project->type->name }}</p>
+                    @endif
                 </div>
             </div>
         </div>
